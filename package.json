@@ -1,0 +1,34 @@
+{
+  "name": "@heysteff/n8n-nodes-heysteff",
+  "version": "0.1.0",
+  "description": "Nodos de n8n para heysteff: recibe y manda mensajes de WhatsApp, Instagram, Messenger, SMS y correo.",
+  "license": "MIT",
+  "homepage": "https://developers.heysteff.com/docs/integraciones",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heysteff-com/n8n-nodes-heysteff.git"
+  },
+  "keywords": ["n8n-community-node-package", "heysteff", "whatsapp", "instagram", "messenger", "sms", "gmail"],
+  "files": ["dist", "README.md", "README.en.md", "LICENSE"],
+  "publishConfig": { "access": "public" },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": ["dist/credentials/HeysteffApi.credentials.js"],
+    "nodes": [
+      "dist/nodes/Heysteff/Heysteff.node.js",
+      "dist/nodes/HeysteffTrigger/HeysteffTrigger.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "n8n-workflow": "2.13.1"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-icons.mjs",
+    "typecheck": "tsc --noEmit"
+  }
+}
